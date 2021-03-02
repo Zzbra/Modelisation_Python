@@ -1,4 +1,3 @@
-
 from pycsp3 import *
 
 if len(sys.argv) < 3:
@@ -8,7 +7,7 @@ if len(sys.argv) < 3:
 k = int(sys.argv[1])
 n = int(sys.argv[2])
 variables = VarArray(size=n, dom=range(k))
-print("k = ", k, "\tn = ", n)
+# print("k = ", k, "\tn = ", n, "\n")
 
 satisfy(
     (variables[i] != variables[j]) | (variables[i] != variables[l]) | (variables[j] != variables[l])
