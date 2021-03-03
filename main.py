@@ -13,9 +13,10 @@ n_tab.append(n4)
 n_tab.append(n5)
 
 first_part = 'python3 schur_csp.py '
-second_part = ' -solver=[choco,v] | python3 test.py'
-for k in range(4, 5):
-    k_offset = k - 4
+second_part = ' -solver=[choco,limit=600s,v] | python3 test.py'
+start_index = 4
+for k in range(start_index, 5):
+    k_offset = k - start_index
     time_val.append([])
     sat.append([])
     for n in n_tab[k_offset]:
@@ -25,7 +26,7 @@ for k in range(4, 5):
         output = stream.read()
         end = time.time()
         time_val[k_offset].append(end - start)
-        if len(output) > 2:
+        if len(output) > 3:
             sat[k_offset].append("SAT")
         else:
             sat[k_offset].append("UNSAT")
@@ -46,9 +47,9 @@ print(sat)
 print(n_tab)
 plt.plot(n_tab[ind], time_val[ind])
 plt.scatter(n_tab[ind], time_val[ind])
-for i in range(len(n_tab[ind])):
-    plt.annotate(sat[ind][i] + " n: " + str(n_tab[ind][i]), (n_tab[ind][i], time_val[ind][i]*1.3+0.6))
+    # for i in range(len(n_tab[ind])):
+    #     plt.annotate(sat[ind][i] + " n: " + str(n_tab[ind][i]), (n_tab[ind][i]-3, time_val[ind][i]*1.3+0.6))
 plt.xlabel("Nombre de boules")
-plt.ylabel("Temps de résolution")
-plt.title("Temps de résolution en fonction du nombre de boules pour trois paniers")
+plt.ylabel("Temps de résolution en secondes")
+plt.title("Temps de résolution en fonction du nombre de boules pour quatre paniers")
 plt.show()
