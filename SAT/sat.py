@@ -27,7 +27,7 @@ for i in range(n):
         clause = ""
         for l in range(k):
             if j != l:
-                clause += -((i + l * n)+1) + " "
+                clause += str(-((i + l * n)+1)) + " "
         clauses.append(clause)
         nb_clauses += 1
 
@@ -48,3 +48,4 @@ for i in range(len(clauses)):
 
 stream = os.popen("minisat sat_model sat_result")
 output = stream.read()
+print(output)
