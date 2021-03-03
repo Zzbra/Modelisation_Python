@@ -50,10 +50,10 @@ for i in range(len(clauses)):
     output.write(clauses[i]+"0\n")
 output.close()
 
-# stream = os.popen("minisat sat_model sat_result.txt")
-# output = stream.read()
-# stream.close()
-# print(output)
+stream = os.popen("minisat k_3/3_20_model sat_result.txt")
+output = stream.read()
+stream.close()
+print(output)
 
 # output = open("sat_result.txt", "r")
 # output.readline()
