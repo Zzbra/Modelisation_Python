@@ -6,7 +6,7 @@ if len(sys.argv) < 3:
 
 k = int(sys.argv[1])
 n = int(sys.argv[2])
-variables = VarArray(size=n, dom=range(k))
+variables = VarArray(size=n+1, dom=range(k))
 # print("k = ", k, "\tn = ", n, "\n")
 
 satisfy(

@@ -1,5 +1,5 @@
 import subprocess
-from utility import parse_output
+from functions import parse_output
 
 proc = subprocess.Popen(['python3', 'schur_csp.py', '3', '15', '-solver=[choco,v]'], stdout=subprocess.PIPE,
                         stderr=subprocess.STDOUT)

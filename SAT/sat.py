@@ -50,38 +50,8 @@ for i in range(len(clauses)):
     output.write(clauses[i]+"0\n")
 output.close()
 
-stream = os.popen("minisat k_3/3_20_model sat_result.txt")
-output = stream.read()
-stream.close()
-print(output)
+# stream = os.popen("minisat k_3/3_20_model sat_result.txt")
+# output = stream.read()
+# stream.close()
+# print(output)
 
-# output = open("sat_result.txt", "r")
-# output.readline()
-# res = output.readline()
-
-# parser = []
-# for i in range(0, len(res)):
-#     tmp = ""
-#     if res[i] == " ":
-#         if i+1 < len(res):
-#             i += 1
-#             if res[i] != "-":
-#                 while res[i] != " " and i+1 < len(res):
-#                     tmp += res[i]
-#                     i += 1
-#                 parser.append(tmp)
-# print(parser)
-#
-# output.close()
-# output = open("sat_result_parse.txt", "w")
-#
-# j = 0
-# for i in range(1, k+1):
-#     test = []
-#     while int(parser[j]) < i*n:
-#         test.append(int(parser[j])-((i-1)*n))
-#         j += 1
-#     output.write(str(i) + " : ")
-#     for l in range(len(test)):
-#         output.write(str(test[l]) + " ")
-#     output.write("\n")

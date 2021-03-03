@@ -10,10 +10,10 @@ n5 = [140, 150, 160, 170, 171]
 n_tab = [n3, n4, n5]
 first_part = 'python3 schur_csp.py '
 second_part = ' -solver=[choco,limit=600s,v] | python3 test.py'
-start_index = 4
+start_index = 3
 
 k_offset = start_index - 3
-for k in range(start_index, 5):
+for k in range(start_index, 4):
 
     for n in n_tab[k_offset]:
         print("n = ", n)

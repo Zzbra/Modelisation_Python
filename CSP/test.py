@@ -1,7 +1,5 @@
 import sys
 
-output_path = sys.argv[1]
-
 res = ""
 assign = ""
 for line in sys.stdin:
@@ -15,6 +13,5 @@ for line in sys.stdin:
                 i += 1
 assign = assign[:-1]
 
-output = open(output_path, "w")
 print("assignation:\t", assign)
 
