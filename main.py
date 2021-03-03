@@ -5,21 +5,26 @@ from matplotlib import pyplot as plt
 time_val = []
 sat = []
 n_tab = []
+time_val.append([])
+sat.append([])
+time_val.append([])
+sat.append([])
+time_val.append([])
+sat.append([])
 n3 = [20, 23, 24, 43, 60, 100]
 n4 = [60, 66, 67, 100]
 n5 = [140, 150, 160, 170, 171]
 n_tab.append(n3)
 n_tab.append(n4)
 n_tab.append(n5)
-
 first_part = 'python3 schur_csp.py '
 second_part = ' -solver=[choco,limit=600s,v] | python3 test.py'
 start_index = 4
 for k in range(start_index, 5):
-    k_offset = k - start_index
-    time_val.append([])
-    sat.append([])
+    k_offset = start_index - 3
+
     for n in n_tab[k_offset]:
+        print(n)
         command = first_part + str(k) + " " + str(n) + second_part
         start = time.time()
         stream = os.popen(command)

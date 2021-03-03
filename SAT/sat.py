@@ -1,5 +1,6 @@
 import sys
 import os
+import time
 
 arguments = sys.argv
 if len(sys.argv) <3:
@@ -37,15 +38,18 @@ for i in range(1, n):
     for j in range(i+1, n+1):
         if i+j <= n:
             for l in range(k):
-                clause = str(-(i + l*n)) + " " + str(-(j + l*n)) + " " + str(-((i+j) + l*n))
+                clause = str(-(i + l*n)) + " " + str(-(j + l*n)) + " " + str(-((i+j) + l*n)) + " "
                 clauses.append(clause)
                 nb_clauses += 1
 
 # On écrit les clauses
 output.write("p cnf " + str(nb_vars) + " " + str(nb_clauses) + "\n")
+print(len(clauses), nb_clauses)
 for i in range(len(clauses)):
     output.write(clauses[i]+"0\n")
+output.close()
 
-stream = os.popen("minisat sat_model sat_result")
+stream = os.popen("minisat sat_model sat_result.txt")
 output = stream.read()
+stream.close()
 print(output)
